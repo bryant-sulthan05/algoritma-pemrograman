@@ -1,42 +1,35 @@
 #include <stdio.h>
 
-int a, b, c = 0;
-
-int product(int x, int y);
-void hitReturn();
-
 int main()
 {
-    // printf("Value of a = %d, a");
-    // printf("\n");
+    int A[4][4] = {
+        {3, 4, 5, 1},
+        {5, 6, 7, 9},
+        {1, 7, 11, 10},
+        {2, 8, 9, 4}};
 
-    // input the first number
-    printf("Enter a number between 1 and 100: ");
-    scanf("%d", &a);
+    int B[4][4] = {
+        {1, 2, 3, 4},
+        {8, 7, 6, 5},
+        {9, 10, 11, 2},
+        {6, 5, 3, 4}};
 
-    // input the second number
-    printf("Enter a number between 1 and 100: ");
-    scanf("%d", &b);
+    int C[4][4] = {0};
+    int i, j, k;
 
-    c = product(a, b);
-    printf("%d times %d = %d\n", a, b, c);
+    printf("Hasil perkalian matriks A dan B:\n");
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            for (k = 0; k < 4; k++)
+            {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+            printf("%4d ", C[i][j]); // Menggunakan %4d untuk format lebar 4 karakter
+        }
+        printf("\n");
+    }
 
-    hitReturn();
-
-    getchar();
     return 0;
-}
-
-/* Function returns the product of its two arguments */
-int product(int x, int y)
-{
-    return (x * y);
-}
-
-// function informs the user to hit the enter button
-void hitReturn()
-{
-    printf("\n");
-    printf("hit the enter button to exit the program");
-    printf("\n");
 }
